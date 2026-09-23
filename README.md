@@ -46,10 +46,10 @@ The `emp_batch_job.py` script performs the following operations:
 2. **Setup Data Bucket:** Create a separate bucket named `airflow-test-projects-gds-dev`. Inside it, create the directory structure outlined above (`data/`, `output/`, `spark-job/`). Upload `employee.csv` and `department.csv` to the `data/` folder, and upload `emp_batch_job.py` to the `spark-job/` folder.
 3. **Deploy the DAG:** Upload the `airflow_spark_job.py` file to the `dags/` folder in your Cloud Composer environment's GCS bucket.
 4. **Monitor the Web UI:** Once uploaded, Airflow will parse the file. You will soon see the `employee_data_analyis_with_spark` DAG appear on the Airflow Web UI.
-  <p align="center"> <img width="959.5" height="450.5" alt="screenshot_airflow_graph" src="https://github.com/user-attachments/assets/e8c1c7dd-37fa-421e-b47a-c1accff4108e" /></p>
-5. **Track Progress:** Trigger the DAG and navigate to the **Graph** section in the Airflow UI to monitor the progress of the workflow visually in real-time.
-  <p align="center"> <img width="953" height="430" alt="screenshot_airflow_success" src="https://github.com/user-attachments/assets/71b7306c-77b2-4dbc-bc5e-647c28e5b0af" /></p>
-6. **Execution Lifecycle:** 
+5. <p align="center"> <img width="959.5" height="450.5" alt="screenshot_airflow_graph" src="https://github.com/user-attachments/assets/e8c1c7dd-37fa-421e-b47a-c1accff4108e" /></p>
+6. **Track Progress:** Trigger the DAG and navigate to the **Graph** section in the Airflow UI to monitor the progress of the workflow visually in real-time.
+7. <p align="center"> <img width="953" height="430" alt="screenshot_airflow_success" src="https://github.com/user-attachments/assets/71b7306c-77b2-4dbc-bc5e-647c28e5b0af" /></p>
+8. **Execution Lifecycle:** 
    * As soon as Task 1 (`create_dataproc_cluster`) succeeds, you will see the cluster spin up in your GCP Dataproc console.
    * Task 2 (`submit_pyspark_job_on_dataproc`) will run the data transformation.
    * On completion (or failure) of the Spark job, Task 3 (`delete_dataproc_cluster`) executes automatically, safely tearing down the cluster resources.
